@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        .imgbook {
+            transition: all 1s ease-in;
+            width: 400px;
+        }
+
+            .imgbook:hover {
+                transform: scale(0.9);
+                cursor: pointer;
+            }
+
+        .imgsachnoibat {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    @Html.Action("NavbarPartial", "Giay")
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="carousel1" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel1" data-slide-to="0" class="active"> </li>
+                <li data-target="#carousel1" data-slide-to="1" class=""> </li>
+                <li data-target="#carousel1" data-slide-to="2" class=""> </li>
+                <li data-target="#carousel1" data-slide-to="3" class=""> </li>
+                <li data-target="#carousel1" data-slide-to="4" class=""> </li>
+                <li data-target="#carousel1" data-slide-to="5" class=""> </li>
+            </ol>
+            <h2 class="text-center">SHOES<strong>WORLD</strong></h2>
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <img class="img-responsive" src="~/Images/InMages/images.png" alt="thumb">
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="~/Images/InMages/logoAdidas.jpg" alt="thumb">
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="~/Images/InMages/logoConvrse.png" alt="thumb">
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="~/Images/InMages/LogoVans.jpg" alt="thumb">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel1" data-slide="next"><span class="icon-next"></span></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                @Html.Action("NhanHieuPatial", "Giay")
+                <br>
+                @Html.Action("NhaSanXuatPatial", "Giay")
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer class="container well">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6" style="text-align:center;">
+                <div class="footer__about__logo">
+                    <a href="./index.php"><img src="~/Images/InMages/background.jpg" alt=""></a>
+                </div>
+                <p>©2021 - Shop Giày SHOES WORLD. Allright Reserved</p>
+                <p>Địa Chỉ: 72 Cách Mạng Tháng Tám, P.Phú Cường, TP.Thủ Dầu Một, Bình Dương </p>
+                <p>Email: shoesworld@gmail.com</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-ms-9 col-xs-6">
+                <h5>Số lượt truy cập </h5>
+                <h5>Số người online</h5>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="footer__widget">
+                    <h6>Useful Links</h6>
+                    <ul>
+                        <li><a href="#">Về Chúng Tôi</a></li>
+                        <li><a href="#">Về Cửa Hàng của Chúng Tôi</a></li>
+                        <li><a href="#">Thông Tin Giao Hàng</a></li>
+                        <li><a href="#">Chính Sách Bảo Mậ<table></table></a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Dịch Vụ Của Chúng Tôi</a></li>
+                        <li><a href="#">Dự Án</a></li>
+                        <li><a href="#">Liện Hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="footer__widget">
+                    <h6>Nhận Thông Tin Của Chúng Tôi Ngay Bây Giờ</h6>
+                    <p>Cập Nhật E-mail Về Thông Tin Mới Nhất Và Những Uu Đãi Đặt Biệt Của Cửa Hàng Chúng Tôi  .</p>
+                    <form action="#">
+                        <input type="text" placeholder="Your mail">
+                        <button type="submit" class="site-btn">Subscribe</button>
+                    </form>
+                    <div class="footer__widget__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+
+                </div>
+                <div class="footer__copyright">
+
+                    <div class="footer__copyright__payment"><img src="~/Images/InMages/payment-item.png" alt=""></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-ms-9 col-xs-6">
+                <h5>Số lượt truy cập: @ApplicationInstance.Application["HitCounter"]</h5>
+                <h5>Số người online: @ApplicationInstance.Application["Online"]</h5>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

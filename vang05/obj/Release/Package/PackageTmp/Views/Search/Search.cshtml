@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutU.cshtml";
+}
+
+<h2>Search</h2>
+
+@model IEnumerable<ShopGiay.Models.GIAY>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutU.cshtml";
+
+}
+
+
+@*@using (Html.BeginForm("Search", "Search", FormMethod.Get))
+{
+    <P>
+        <input type="text" name="strSearch" value="@ViewBag.Search" placeholder="Nhập sản phẩm cần tìm."
+               sise="100" />
+        <input type="submit" value="Tìm Kiếm" />
+    </P>
+}*@
+
+@{
+    if (Model != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenGiay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GiaBan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoTa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnhGiay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoLuongBan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaNH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaNSX)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenGiay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GiaBan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoTa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnhGiay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuongBan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaNH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaNSX)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.MaGiay })"
+                           class="btn btn-warning" role="button">Sửa</a>
+                        <a href="@Url.Action("Details", new { id = item.MaGiay })"
+                           class="btn btn-primary" role="button">Chi tiết</a>
+                        <a href=" @Url.Action("Delete", new { id = item.MaGiay })"
+                           class="btn btn-danger" role="button">Xóa</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+}
+
+
+

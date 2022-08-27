@@ -1,0 +1,53 @@
+﻿@using ShopGiay.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<GIAY>
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Shared/_LayoutU.cshtml";
+}
+
+<h2 class="text-center">THEO NHÃN HIỆU</h2>
+<hr>
+<div class="row text-center">
+    @{
+        var i = 0;
+    }
+    @foreach (var giay in Model)
+    {
+        i++;
+        if (i % 3 == 0)
+        {
+            @:<div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hiden-xs">
+            }
+            else
+            {
+                @:<div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                }
+                <div class="thumbnail">
+                    <img src="~/Images/InMages/@giay.AnhGiay", alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook" style=" width :400px;">
+                    <div class="caption">
+                        <h4 style=" min-height :70px;">
+                            <a href="@Url.Action("ChiTietGiay", "Giay", new {id = giay.MaGiay})">@giay.TenGiay</a>
+                        </h4>
+                        <p>
+                            <a href="@Url.Action("ThemGioHang", "GioHang", new {mg = giay.MaGiay, url = Request.Url.ToString()})"
+                               class="bth">
+                                BuyNow
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            @:</div>
+        }
+</div>
+</div>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("TheoNhanHieu", new { iMaNH = ViewBag.MaNH, page = page }))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,85 @@
+﻿@model ShopGiay.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm Đơn Hàng</h2>
+
+
+@using (Html.BeginForm("Create", "DonHang", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày Đặt</label>
+        <div class="col-md-10">
+            <input type="text" size="70" id="dNgayDat" name="gTenGiay" value="@ViewBag.NgayDat" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày Giao</label>
+        <div class="col-md-10">
+            <textarea name="dNgayGiao">
+                @ViewBag.NgayGiao</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Mã Khách Hàng</label>
+        <div class="col-md-10">
+            <textarea name="MaKH">
+                @ViewBag.MaKH</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Số Điện Thoại</label>
+        <div class="col-md-10">
+            <textarea name="sSoDT">
+                @ViewBag.SoDT</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <div class="col-md-10">
+            <textarea name="eEmail">
+                @ViewBag.Email</textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Địa Chỉ</label>
+        <div class="col-md-10">
+            <textarea name="dDiaChi">
+                @ViewBag.DiaChi</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+    <label class="control-label col-md-2">Tình Trạng Giao Hàng</label>
+    <div class="col-md-10">
+        <textarea name="tTinhTrangGiaoHang">
+                @ViewBag.TinhTrangGiaoHang</textarea>
+    </div>
+</div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ", "Index")
+</div>

@@ -1,0 +1,27 @@
+﻿
+
+<div class="row text-left">
+<div class=" col-sm-12 col-lg-12 col-md-12 col-xs-12">
+    <div class="thumbnail">
+        <h4 class="tengiay">
+            @Model.TenGiay
+        </h4>
+        <img src="~/Images/InMages/@Model.AnhGiay" alt="@Model.TenGiay" />
+        <div class="motasach">
+            <p>
+                @Html.Raw(Model.MoTa.ToString().Replace("\n", "<p></p>&nbsp&nbsp&nbsp"))
+            </p>
+        </div>
+
+        <p class="giaban">Giá bán: <span>@Html.FormatValue(Model.GiaBan, "{0:#,###.##0}") VNĐ</span></p>
+        <p>
+            <a href="@Url.Action("ThemGioHang", "GioHang", new {mg =Model.MaGiay, url = Request.Url.ToString()})"
+               class=""bth">
+                BuyNow
+
+
+        </a>
+        </p>
+    </div>
+    </div>
+    </div>

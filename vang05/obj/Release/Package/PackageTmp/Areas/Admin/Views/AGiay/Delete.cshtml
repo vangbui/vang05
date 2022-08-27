@@ -1,0 +1,83 @@
+﻿@model ShopGiay.Models.GIAY
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+
+<h3>Bạn quyết định xóa sản phẩm này</h3>
+<h4>@Html.Raw(ViewBag.ThôngBao) </h4>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên giầy:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGiay)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.Raw(@Model.MoTa.ToString().Replace("\n", "</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp"))
+        </dd>
+
+        <dt>
+            Ảnh :
+        </dt>
+
+        <dd>
+            <img src="~/Images/InMages/@Model.AnhGiay"alt="@Model.TenGiay" />
+        </dd>
+
+        <dt>
+            Số lượng bán:
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.SoLuongBan)
+        </dd>
+
+        <dt>
+            Gía bán:
+        </dt>
+
+        <dd>
+            @Html.FormatValue(Model.GiaBan, "{0:#,##0}")VNĐ
+        </dd>
+
+        <dt>
+            Nhãn Hiệu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANHIEU.TenNH)
+        </dd>
+
+        <dt>
+            Nhà sản xuất:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHASANXUAT.TenNXB)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("VỀ TRANG QUẢN LÝ SẢN PHẨM", "Index")
+        </div>
+    }
+</div>

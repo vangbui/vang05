@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ShopGiay.Models.NHANHIEU>
+<ul class="list-group">
+    <li class="list-group-item active" style="font-weight:bold; text-align:"> THEO NHÃN HIỆU</li>
+    @foreach (var item in Model)
+    {
+        ///sai param rồi đùng là iMaNH thay cho id
+        <a href="@Url.Action("TheoNhanHieu", "Giay", new {iMaNH=item.MaNH})"
+           class="list-group-item">@item.TenNH</a>
+    }
+
+</ul>

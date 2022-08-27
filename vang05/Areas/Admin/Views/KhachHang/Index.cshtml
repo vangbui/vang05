@@ -1,0 +1,90 @@
+﻿@*@model IEnumerable<ShopGiay.Models.KHACHHANG>*@
+@using ShopGiay.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<ShopGiay.Models.KHACHHANG>
+
+@helper Truncate(string s, int lenght)
+{
+    if (s.Length < lenght)
+    {
+        @s;
+    }
+    else
+    {
+        @s.Substring(0, lenght)<text>...</text>
+    }
+}
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align: center;">DANH SÁCH KHÁCH HÀNG </h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th style="text-align: center; width:140px">
+            Tên Khách Hàng
+        </th>
+        <th style="text-align: center; width:200px">
+            Tài Khoản
+        </th>
+        <th style="text-align: center; width:80px">
+            Mật Khẩu
+        </th>
+        <th style="text-align: center; width:80px">
+            Email
+        </th>
+        <th style="text-align: center; width:80px">
+            Dịa Chỉ
+        </th>
+        <th style="text-align: center; width:100px">
+            Diện Thoại
+        </th>
+        <th style="text-align: center; width:100px">
+            Ngày Sinh
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.MaKH})"
+                   class="btn btn-warning" role="button">Sửa</a>
+                <a href="@Url.Action("Delete", new { id = item.MaKH })"
+                   class="btn btn-primary" role="button">Xóa</a>
+                <a href=" @Url.Action("Create", new { id = item.MaKH })"
+                   class="btn btn-danger" role="button">Thêm Mới</a>
+            </td>
+        </tr>
+    }
+
+</table>
