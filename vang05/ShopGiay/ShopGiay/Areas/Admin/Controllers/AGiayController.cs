@@ -60,7 +60,7 @@ namespace ShopGiay.Areas.Admin.Controllers
                         fFileUpload.SaveAs(path);
                     }
                     giay.TenGiay = f["gTenGiay"];
-                    giay.MoTa = f["gMoTa"].Replace("<p>", " ").Replace("<p>", "\n");
+                    giay.MoTa = f["sMoTa"].Replace("<p>", " ").Replace("<p>", "\n");
                     giay.AnhGiay = sFileName;
                     giay.SoLuongBan = int.Parse(f["iSoLuong"]);
                     giay.GiaBan = decimal.Parse(f["mGiaBan"]);

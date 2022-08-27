@@ -14,7 +14,6 @@
             <div class="thumbnail">
                 <img src="~/Images/InMages/@giay.AnhGiay" alt="Thumbnail Image 1" lass="img-responsive img-rounded imgbook"
                      style="width:400px;" />
-                <p class="giaban">Giá bán: <span>@Html.FormatValue(giay.GiaBan, "{0:#,###.##0}") VNĐ</span></p>
                 <div class="caption">
                     <h4 style=" min-height :70px;">
                         <a href="@Url.Action("ChiTietGiay", "Giay", new {id = giay.MaGiay})">@giay.TenGiay</a>

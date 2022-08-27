@@ -49,11 +49,11 @@ namespace ShopGiay.Controllers
         }
         public ActionResult TheoNhanHieu(int iMaNH, int? page)
         {
-           
+           //ở đây viewbag của e ko map do sai tên tở view
             ViewBag.MaNH = iMaNH;
             int iSize = 3;
             int iPageNum = (page ?? 1);
-           
+            ///điều kiện where của e sai rồi, where theo loại chứ 
             var giay = from g in data.GIAYs where g.MaNH == iMaNH select g;
             return View(giay.ToPagedList(iPageNum, iSize));
         }
